@@ -1,0 +1,5 @@
+---
+- name: mkdir local.repo
+  template:
+    src: repo.j2 
+    dest: /etc/yum.repos.d/local.repo

@@ -1,0 +1,23 @@
+---
+- name: download kolla-ansible
+  get_url: url=ftp://99cloudftp:iPRx06B0@172.16.20.14/tarballs/animbus-5.2.0rc4/kolla-ansible-{{version}}.tar.gz                 dest=/root/
+     
+- name: unarchive kolla-ansible.tar.gz
+  unarchive:
+    src: /root/kolla-ansible-{{version}}.tar.gz
+    dest: /root/
+    remote_src: yes
+     
+- name: yum install pip
+  yum: 
+    name: python-pip
+    state: latest
+
+- name: pip install kolla-ansible
+  pip:
+    name: /root/kolla-ansible-{{version}}/.
+     
+- name: copy global and password
+  copy:
+    src: /root/kolla-ansible-{{version}}/etc/kolla
+    dest: /etc/

@@ -1,0 +1,17 @@
+---
+- name: yum pkg
+  yum: 
+    name={{ item }}  
+    state=latest
+  with_items:
+    - docker-engine
+    - python-docker-py
+    - gcc
+    - python-devel
+- name: daemon-reload
+    systemd:
+        state: restarted
+        daemon-reload: yes
+        name: docker 
+- name: ensure docker is running
+    service: name=docker state=started

@@ -1,0 +1,4 @@
+---
+- hosts: localhost
+    roles:
+        - { role: kolla-ansible,  version: 4.0.2.dev196 }

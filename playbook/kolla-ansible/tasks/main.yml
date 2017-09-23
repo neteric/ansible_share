@@ -1,0 +1,6 @@
+---
+  tasks:
+  - include: yum.yml
+  - include: docker.yml
+  - include: docker-conf.yml
+  - include: kolla-ansible.yml
