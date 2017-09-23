@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  vars:
+    foo: kolla-ansible-4.0.2.dev196
+  tasks:
+  - include: yum.yml
+  - include: docker.yml
+  - include: docker-conf.yml
+  - include: kolla-ansible.yml
